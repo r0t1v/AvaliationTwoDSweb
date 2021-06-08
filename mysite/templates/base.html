@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+  		<meta name="description" content="Primeira avaliação de DS web">
+  		<meta name="keywords" content="HTML, CSS, JavaScript">
+  		<meta name="author" content="Vitor G. Dantas and Wanderson G.">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<title>{% block title %} {% endblock %}</title>
+		<link rel="icon" type="image/ico" href="{% static 'img/icon.png' %}">
+		<link rel="stylesheet" href= "{% static 'css/styles.css' %}">
+		<link rel="stylesheet" href= "{% static 'css/bootstrap.css' %}">
+	</head>
+	<body style="background-color: #7f8c8d">
+		<div class="topolang" align="right">
+			<img alt="EN-US" src="https://i.imgur.com/QqtGoQ4.gif" width="15" height="10"/>EN-US
+			<img alt="PT-BR" src="https://i.imgur.com/3fl9Sfi.gif" width="15" height="10"/>PT-BR
+		</div>
+		<center>
+		<nav>
+			<div class="menu">
+				<h1 style="font-weight: bold; color: #0984e3;">CodeSimple - Segunda Avalição de DSNWEB</h1>
+				<a href="{% url 'index' %}" style="text-decoration-line: none">Principal</a>
+				<a href="{% url 'index' %}#noticia" style="text-decoration-line: none">Noticias</a>
+				<a href="{% url 'about' %}" style="text-decoration-line: none">Sobre</a>
+			</div>
+		</nav>
+		{% block body %} {% endblock %}
+		<hr>
+		<div class="comentarios" align="left">
+			<h3 style="font-weight: bold" align="left">Comente com:
+				<button type="button" id="facebook" class="btn btn-primary"><img src="{% static 'img/faceicon.png'%}" class="img-fluid" alt="iconface"></button>
+				<button type="button" id="twitter" class="btn btn-primary"><img src="{% static 'img/twicon.png'%}" class="img-fluid" alt="icontw"></button>
+				<button type="button" id="pinterest" class="btn btn-primary"><img src="{% static 'img/pinticon.png'%}" class="img-fluid" alt="iconface"></button>
+				<button type="button" id="google" class="btn btn-primary"><img src="{% static 'img/gicon.png'%}" class="img-fluid" alt="iconface"></button>
+			</h3>
+			<div class="form" align="left">
+			<h3 style="font-weight: bold">Ou com:</h3>
+				<form action="" method="POST">
+				{% csrf_token %}
+				<label for="nome" class="form-label">Nome</label>
+			  	<input type="text" class="form-control" id="nome" name="nome" placeholder="Fulano de tal" required="">
+			  	<label for="email" class="form-label">Email</label>
+			  	<input type="email" class="form-control" id="email" name="email" placeholder="seuemail@email.com" required>
+			  	<label for="comentario" class="form-label">Mensagem</label>
+			  	<textarea class="form-control" id="mensagem" name="mensagem" rows="3" required></textarea>
+			  	<input type="submit" class="btn btn-primary" style="margin-top:15px"></input>
+			  	</form>
+			  </div>
+		</div>
+		<footer>
+			<div class="final">
+				<center>
+					<div class="row align-items-center">
+						<div class="col">
+							<span id="logofinal">CodeSimple</span>
+						</div>
+						<div class="col">
+						    <dl>
+								<dt>Conteudo</dt>
+								<hr>
+								<dd><a href="{% url 'index' %}" style="text-decoration-line: none; color: #2d3436">Principal</a></dd>
+								<dd><a href="{% url 'index' %}#noticia" style="text-decoration-line: none; color: #2d3436">Noticias</a></dd>
+								<dt>Contato</dt>
+								<hr>
+								<dd><a href="{% url 'about' %}#sobre" style="text-decoration-line: none; color: #2d3436">Sobre</a></dd>
+							</dl>
+						</div>
+				  	</div>
+				No Copyrights 2021.
+				</center>
+			</div>
+		</footer>
+		<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+	</body>
+</html>
